@@ -1,0 +1,18 @@
+services:
+  node-mindar:
+    image: node:lts-bookworm
+    volumes:
+      - ./app:/usr/src/
+    working_dir: /usr/src/
+    command: sleep infinity
+    expose: 
+    - 3000
+    # ports:
+    #   - 3000:3000
+    networks:
+    - tunnel
+
+networks:
+  tunnel:
+    name: docker_tunnel
+    external: true
